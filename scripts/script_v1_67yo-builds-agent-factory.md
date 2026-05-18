@@ -166,7 +166,7 @@ Here's the number that changed everything for me.
 
 I was spending forty hours a week on tasks that required my name but not my brain.
 
-Forty hours. Gone.
+Forty hours. That's like two days. Gone.
 
 [ON-SCREEN TEXT: "40 HRS/WEEK → AUTOMATED"]
 
