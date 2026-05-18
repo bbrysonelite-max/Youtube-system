@@ -82,7 +82,7 @@ That's all you need to start.
 
 ## EMAIL 3 — Day 7
 
-**Subject:** Why I rebuilt everything at 57
+**Subject:** Why I rebuilt everything at 67
 
 ---
 
