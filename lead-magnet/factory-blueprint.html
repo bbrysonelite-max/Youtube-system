@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Factory Blueprint — Brent Bryson</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: #0a0a0a;
+    color: #f0f0f0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 40px 20px;
+  }
+
+  .page {
+    width: 800px;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  /* HEADER */
+  .header {
+    background: #000;
+    border-bottom: 3px solid #e8a020;
+    padding: 48px 56px 40px;
+  }
+
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #e8a020;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .title {
+    font-size: 52px;
+    font-weight: 900;
+    line-height: 1.0;
+    color: #ffffff;
+    margin-bottom: 12px;
+    letter-spacing: -1px;
+  }
+
+  .title span {
+    color: #e8a020;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    color: #999;
+    line-height: 1.5;
+    max-width: 560px;
+    margin-top: 16px;
+  }
+
+  .subtitle strong {
+    color: #f0f0f0;
+    font-weight: 600;
+  }
+
+  /* BODY */
+  .body {
+    padding: 48px 56px;
+  }
+
+  .intro {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #bbb;
+    margin-bottom: 40px;
+    border-left: 3px solid #e8a020;
+    padding-left: 20px;
+  }
+
+  .intro strong {
+    color: #fff;
+    font-weight: 600;
+  }
+
+  /* AGENTS */
+  .agents-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #e8a020;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+  }
+
+  .agent {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 28px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #1e1e1e;
+    align-items: flex-start;
+  }
+
+  .agent:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+  }
+
+  .agent-number {
+    font-size: 36px;
+    font-weight: 900;
+    color: #222;
+    min-width: 48px;
+    line-height: 1;
+    margin-top: 2px;
+  }
+
+  .agent-content {}
+
+  .agent-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+  }
+
+  .agent-what {
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.6;
+    margin-bottom: 6px;
+  }
+
+  .agent-replaces {
+    font-size: 12px;
+    font-weight: 600;
+    color: #e8a020;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .agent-replaces span {
+    font-weight: 400;
+    color: #666;
+    text-transform: none;
+    letter-spacing: 0;
+  }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px;
+    background: #1e1e1e;
+    margin: 40px 0;
+  }
+
+  /* CTA BLOCK */
+  .cta-block {
+    background: #0d0d0d;
+    border: 1px solid #2a2a2a;
+    border-radius: 10px;
+    padding: 36px 40px;
+    text-align: center;
+  }
+
+  .cta-eyebrow {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #e8a020;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+
+  .cta-headline {
+    font-size: 26px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+
+  .cta-body {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto 24px;
+  }
+
+  .cta-body strong {
+    color: #bbb;
+    font-weight: 600;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: #e8a020;
+    color: #000;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    padding: 14px 36px;
+    border-radius: 6px;
+    text-decoration: none;
+  }
+
+  .cta-url {
+    display: block;
+    margin-top: 14px;
+    font-size: 12px;
+    color: #555;
+    letter-spacing: 1px;
+  }
+
+  /* FOOTER */
+  .footer {
+    background: #000;
+    border-top: 1px solid #1a1a1a;
+    padding: 20px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-brand {
+    font-size: 12px;
+    font-weight: 700;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .footer-quote {
+    font-size: 11px;
+    color: #333;
+    font-style: italic;
+    max-width: 340px;
+    text-align: right;
+  }
+
+  /* PRINT */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .page { border: none; border-radius: 0; width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="eyebrow">Free Resource — Brent Bryson / AI for the Rest of Us</div>
+    <div class="title">The <span>Factory</span><br>Blueprint</div>
+    <div class="subtitle">
+      <strong>5 agents every distributor needs running before 2026 ends.</strong><br>
+      Not theory. Not demos. The exact five I built when I realized AI was coming for me — and decided to build the factory instead.
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <p class="intro">
+      I spent 30 years in person-to-person distribution.<br>
+      When AI showed up, I had a choice: <strong>get replaced or get ahead.</strong><br>
+      These five agents are how I got ahead. Every one of them runs while I sleep.
+    </p>
+
+    <div class="agents-label">The 5 Agents</div>
+
+    <div class="agent">
+      <div class="agent-number">01</div>
+      <div class="agent-content">
+        <div class="agent-name">The Follow-Up Agent</div>
+        <div class="agent-what">Watches your prospect list, surfaces who hasn't heard from you in 48 hours, and drafts the next message in your voice — ready to send in one click.</div>
+        <div class="agent-replaces">Replaces: <span>the mental load of remembering who you owe a follow-up</span></div>
+      </div>
+    </div>
+
+    <div class="agent">
+      <div class="agent-number">02</div>
+      <div class="agent-content">
+        <div class="agent-name">The Research Agent</div>
+        <div class="agent-what">Before any prospect conversation, this agent pulls what matters — job, company, recent moves, potential pain points — and gives you a one-paragraph brief.</div>
+        <div class="agent-replaces">Replaces: <span>30 minutes of LinkedIn stalking before every call</span></div>
+      </div>
+    </div>
+
+    <div class="agent">
+      <div class="agent-number">03</div>
+      <div class="agent-content">
+        <div class="agent-name">The Objection Handler</div>
+        <div class="agent-what">Feed it the objection you just got. It drafts three response options in your voice — direct, empathetic, or disarming. You pick one, edit if you want, send.</div>
+        <div class="agent-replaces">Replaces: <span>staring at a message not knowing what to say next</span></div>
+      </div>
+    </div>
+
+    <div class="agent">
+      <div class="agent-number">04</div>
+      <div class="agent-content">
+        <div class="agent-name">The Content Agent</div>
+        <div class="agent-what">Takes one idea you had today and turns it into a Short script, a LinkedIn post, and a story caption — formatted and ready for any platform.</div>
+        <div class="agent-replaces">Replaces: <span>the 90 minutes you don't have to spend on content every day</span></div>
+      </div>
+    </div>
+
+    <div class="agent">
+      <div class="agent-number">05</div>
+      <div class="agent-content">
+        <div class="agent-name">The Morning Brief Agent</div>
+        <div class="agent-what">Every morning before you open anything else: your top 3 follow-ups, one piece of market intel, and your one focus for the day. Lands in your inbox at 7am.</div>
+        <div class="agent-replaces">Replaces: <span>the scattered first hour that decides how the whole day goes</span></div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- CTA -->
+    <div class="cta-block">
+      <div class="cta-eyebrow">Next Step</div>
+      <div class="cta-headline">Tiger Claw gives you all five.<br>Already built. Ready to run.</div>
+      <div class="cta-body">
+        Tiger Claw is the agent platform built specifically for distributors, affiliates, and relationship-driven operators.
+        <strong>Join the waitlist and be first in when we open the doors.</strong>
+      </div>
+      <a class="cta-button" href="https://tigerclaw.io">Join the Waitlist →</a>
+      <span class="cta-url">tigerclaw.io</span>
+    </div>
+
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">Brent Bryson — AI for the Rest of Us</div>
+    <div class="footer-quote">"If you're not future-ready, you're destined for an underclass."</div>
+  </div>
+
+</div>
+</body>
+</html>
