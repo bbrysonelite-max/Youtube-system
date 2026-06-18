@@ -46,7 +46,10 @@ import subprocess
 # CONFIGURATION
 # =============================================================================
 
-API_KEY = os.environ.get("HEYGEN_API_KEY", "sk_V2_hgu_k69cb23FX7B_Zq8dUO8yjkk02zMnAdUAoMbW0r2SL86x")
+API_KEY = os.environ.get("HEYGEN_API_KEY")
+if not API_KEY:
+    sys.exit("HEYGEN_API_KEY is not set. Export it before running "
+             "(e.g. from your GitSync credentials). Never hardcode the key.")
 AVATAR_ID = "524caea65d4a45b5aab1c649cde0d472"   # Brent Bryson - Black Hoodie
 VOICE_ID = "50e70458c88d4afb8ec65ec4adee00bb"
 
