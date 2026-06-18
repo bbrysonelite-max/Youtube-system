@@ -1,0 +1,14 @@
+# Secrets — never commit credential stores or key-bearing files
+.env
+.env.*
+*.key
+*_key.txt
+*api*key*.txt
+secrets/
+credentials/
+
+# OS / editor cruft
+.DS_Store
+*.swp
+__pycache__/
+*.pyc
