@@ -1,3 +1,20 @@
+> # ⛔ CLOSED — MERGED INTO `ai-social-system`
+>
+> **As of 2026-06-22, this repo is closed.** All content moved into
+> **[`bbrysonelite-max/ai-social-system`](https://github.com/bbrysonelite-max/ai-social-system)**
+> under the **`youtube/`** folder, which is now the **single source of truth**.
+>
+> Two hallucinations that lived in this repo were corrected during the merge —
+> **do not trust the versions below:**
+> 1. **Buffer does NOT replace Blotato.** Posting / scheduling / cross-post runs on
+>    **Blotato** (the `cadence` + `blotato-post` skills).
+> 2. **No "100% AI avatar" auto-generation.** Brent renders his own clones in the
+>    HeyGen GUI; the system only packages + posts the finished clip.
+>
+> The text below is kept read-only for history. **Go to `ai-social-system/youtube/`.**
+
+---
+
 # youtube-system
 ## Brent Bryson — AI for the Rest of Us
 ### Programmatic YouTube Publishing System
